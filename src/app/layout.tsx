@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "../styles/globals.css";
 import { Header } from "@/components/Header";
-import { CustomThirdwebProvider } from "@/components/ThirdwebProvider";
+import { ThirdwebProvider } from "thirdweb/react";
 
 export const metadata: Metadata = {
   title: "Claim NFTs via qr codes | thirdweb Engine",
@@ -15,10 +15,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <CustomThirdwebProvider>
+        <ThirdwebProvider>
           <Header />
           {children}
-        </CustomThirdwebProvider>
+        </ThirdwebProvider>
       </body>
     </html>
   );

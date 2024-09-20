@@ -2,11 +2,12 @@
 
 import { useState, type FC } from "react";
 import axios from "axios";
-import { ConnectWallet, useAddress } from "@thirdweb-dev/react";
 import styles from "@/styles/Claim.module.css";
+import { ConnectButton, useActiveAccount } from "thirdweb/react";
+import { client } from "@/app/client";
 
 const Button: FC<{ id: string }> = ({ id }) => {
-  const address = useAddress();
+  const address = useActiveAccount()?.address;
   const [loading, setLoading] = useState(false);
 
   const claim = async () => {
@@ -36,7 +37,9 @@ const Button: FC<{ id: string }> = ({ id }) => {
           {loading ? "Claiming..." : "Claim"}
         </button>
       ) : (
-        <ConnectWallet className={styles.connectBtn} />
+        <ConnectButton
+          client={client} 
+        />
       )}
     </>
   );

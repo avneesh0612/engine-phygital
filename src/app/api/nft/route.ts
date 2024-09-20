@@ -1,4 +1,4 @@
-import prisma from "@/prisma/prisma";
+import prisma from "scripts/prisma.mjs";
 import { Engine } from "@thirdweb-dev/engine";
 import { NextResponse } from "next/server";
 
@@ -32,7 +32,7 @@ export async function POST(req: Request) {
     });
 
     const tx = await engine.erc721.mintTo(
-      "goerli",
+      "sepolia",
       NFT_CONTRACT_ADDRESS,
       BACKEND_WALLET_ADDRESS,
       {

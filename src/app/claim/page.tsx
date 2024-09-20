@@ -1,7 +1,8 @@
 import Button from "@/components/Button";
-import { MediaRenderer } from "@/components/MediaRenderer";
-import prisma from "@/prisma/prisma";
 import styles from "@/styles/Claim.module.css";
+import { MediaRenderer } from "thirdweb/react";
+import { client } from "../client";
+import prisma from "scripts/prisma.mjs";
 
 async function getData(id: string) {
   const nft = await prisma.nFT.findUnique({
@@ -36,6 +37,7 @@ export default async function ClaimPage({
       )}
       <div className={styles.nft}>
         <MediaRenderer
+          client={client}
           src={nft.image}
           alt={nft.name}
           width="250px"

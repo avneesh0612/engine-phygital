@@ -343,7 +343,10 @@ const main = async () => {
 
     console.log("NFTs added to DB");
   } catch (e) {
-    console.error(e);
+    console.error("Error details:", e);
+    console.error("Error name:", e.name);
+    console.error("Error message:", e.message);
+    if (e.code) console.error("Error code:", e.code);
   }
 };
 

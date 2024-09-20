@@ -1,9 +1,11 @@
 "use client";
 
-import { NFT, ThirdwebNftMedia } from "@thirdweb-dev/react";
 import type { FC } from "react";
 import styles from "@/styles/Home.module.css";
 import Link from "next/link";
+import { MediaRenderer } from "thirdweb/react";
+import { client } from "@/app/client";
+import { NFT } from "thirdweb";
 
 interface NFTCardProps {
   metadata: NFT["metadata"];
@@ -16,8 +18,8 @@ export const NFTCard: FC<NFTCardProps> = ({ metadata }) => {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <div key={metadata.id} className={styles.nft}>
-        <ThirdwebNftMedia metadata={metadata} width="140px" height="140px" />
+      <div key={metadata.id as string} className={styles.nft}>
+        <MediaRenderer client={client} src={metadata.image}/>
         <h2>{metadata.name}</h2>
       </div>
     </Link>

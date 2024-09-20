@@ -1,11 +1,12 @@
 "use client";
 
 import type { FC } from "react";
-import { ConnectWallet } from "@thirdweb-dev/react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "@/styles/Header.module.css";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
+import { ConnectButton } from "thirdweb/react";
+import { client } from "@/app/client";
 
 export const Header: FC = () => {
   const pathname = usePathname();
@@ -28,7 +29,7 @@ export const Header: FC = () => {
       </div>
 
       <div style={{ width: "200px" }}>
-        <ConnectWallet theme="dark" />
+        <ConnectButton client={client} />
       </div>
     </nav>
   );

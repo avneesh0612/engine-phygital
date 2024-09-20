@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "prisma generate --schema=./src/prisma/schema.prisma && next dev",
-    "build": "prisma generate --schema=./src/prisma/schema.prisma && next build",
+    "dev": "prisma generate --schema=./prisma/schema.prisma && next dev",
+    "build": "prisma generate --schema=./prisma/schema.prisma && next build",
     "start": "next start",
     "lint": "next lint",
     "export": "next export",
@@ -13,14 +13,14 @@
   "dependencies": {
     "@prisma/client": "^5.5.2",
     "@thirdweb-dev/engine": "^0",
-    "@thirdweb-dev/react": "^4",
-    "@thirdweb-dev/sdk": "^4",
     "axios": "^1.6.0",
     "ethers": "^5",
+    "mongodb": "^6.9.0",
     "next": "^14",
     "next-qrcode": "^2.5.1",
     "react": "^18.2",
-    "react-dom": "^18.2"
+    "react-dom": "^18.2",
+    "thirdweb": "^5.57.3"
   },
   "devDependencies": {
     "@types/node": "^20.8.10",

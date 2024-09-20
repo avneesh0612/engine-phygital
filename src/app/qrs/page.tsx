@@ -1,5 +1,5 @@
 import { QR } from "@/components/QR";
-import prisma from "@/prisma/prisma";
+import prisma from "scripts/prisma.mjs";
 import styles from "@/styles/Home.module.css";
 
 export const revalidate = 3600;
@@ -30,7 +30,7 @@ export default async function QrsPage() {
       <div className={styles.grid}>
         {nfts.map((nft: { id: string }) => (
           <QR
-            url={`https://engine-phygital.vercel.app/claim?id=${nft.id}`}
+            url={`http://localhost:3000/claim?id=${nft.id}`}
             key={nft.id}
           />
         ))}
